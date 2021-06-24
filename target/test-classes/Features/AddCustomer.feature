@@ -5,6 +5,7 @@ Feature: Validating add customer flow
 Background:
   And user click on add customer button
 
+@run
   Scenario: Add Customer validation
     When user need to fill up the fields
     And user click on submit button

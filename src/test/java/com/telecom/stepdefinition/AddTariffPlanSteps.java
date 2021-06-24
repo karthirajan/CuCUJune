@@ -5,19 +5,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.telecom.resources.Commonaction;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AddTariffPlanSteps {
+public class AddTariffPlanSteps extends Commonaction{
 	
 	
 	
 	@Given("user click on add tariff button")
 	public void user_click_on_add_tariff_button() {
 	    
-		Hooks.driver.findElement(By.xpath("//a[text()='Add Tariff Plan']")).click();
+		driver.findElement(By.xpath("//a[text()='Add Tariff Plan']")).click();
 		
 	}
 
@@ -26,27 +28,27 @@ public class AddTariffPlanSteps {
 	   
 		System.out.println("scenario");
 		
-		Hooks.driver.findElement(By.id("rental1")).sendKeys(mr);
-		Hooks.driver.findElement(By.id("local_minutes")).sendKeys(flm);
-		Hooks.driver.findElement(By.id("inter_minutes")).sendKeys(fim);
-		Hooks.driver.findElement(By.id("sms_pack")).sendKeys(string4);
-		Hooks.driver.findElement(By.id("minutes_charges")).sendKeys(string5);
-		Hooks.driver.findElement(By.id("inter_charges")).sendKeys(string6);
-		Hooks.driver.findElement(By.id("sms_charges")).sendKeys(string7);
+		driver.findElement(By.id("rental1")).sendKeys(mr);
+		driver.findElement(By.id("local_minutes")).sendKeys(flm);
+		driver.findElement(By.id("inter_minutes")).sendKeys(fim);
+		driver.findElement(By.id("sms_pack")).sendKeys(string4);
+		driver.findElement(By.id("minutes_charges")).sendKeys(string5);
+		driver.findElement(By.id("inter_charges")).sendKeys(string6);
+		driver.findElement(By.id("sms_charges")).sendKeys(string7);
 		
 	}
 
 	@When("user clicked on the submit button")
 	public void user_clicked_on_the_submit_button() {
 	    
-		Hooks.driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
+		driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
 		
 	}
 
 	@Then("user verify congratulation message")
 	public void user_verify_congratulation_message() {
 	   
-		String text = Hooks.driver.findElement(By.xpath("(//h2[contains(text(),'Congratulation')])[1]")).getText();
+		String text = driver.findElement(By.xpath("(//h2[contains(text(),'Congratulation')])[1]")).getText();
 		
 		Assert.assertEquals("Congratulation you add Tariff Plan", text);
 		

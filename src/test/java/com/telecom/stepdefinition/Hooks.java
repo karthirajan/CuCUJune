@@ -5,23 +5,22 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.telecom.resources.Commonaction;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Hooks {
+public class Hooks extends Commonaction{
 	
-	static WebDriver driver;
+	
 	
 	@Before
 	public void beforeScenario(){
 		
-		System.out.println("Before Scenario");
-		WebDriverManager.chromedriver().setup();
-		 driver = new ChromeDriver();
-		driver.get("http://www.demo.guru99.com/telecom/");
-		driver.manage().window().maximize();
+		launch("http://www.demo.guru99.com/telecom/");
+		
 	}
 	
 	

@@ -31,7 +31,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Add Customer validation by 1D list concept",
+  "name": "Add Customer validation",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -42,30 +42,16 @@ formatter.scenario({
       "name": "@regression"
     },
     {
-      "name": "@OneDimList"
-    },
-    {
-      "name": "@smoke"
+      "name": "@run"
     }
   ]
 });
 formatter.step({
-  "name": "user need to fill up the fields by oneDim list",
-  "rows": [
-    {
-      "cells": [
-        "Soundar",
-        "Rajan",
-        "Rajan@gmail.com",
-        "Addr",
-        "65465464"
-      ]
-    }
-  ],
+  "name": "user need to fill up the fields",
   "keyword": "When "
 });
 formatter.match({
-  "location": "AddCustomerSteps.user_need_to_fill_up_the_fields_by_oneDim_list(DataTable)"
+  "location": "AddCustomerSteps.user_need_to_fill_up_the_fields()"
 });
 formatter.result({
   "status": "passed"

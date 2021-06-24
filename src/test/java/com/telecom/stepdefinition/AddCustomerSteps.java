@@ -8,33 +8,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.telecom.objectrepository.AddCustomerPage;
+import com.telecom.resources.Commonaction;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AddCustomerSteps {
+public class AddCustomerSteps extends Commonaction{
 	
-	
+	Commonaction ca = new Commonaction();
+	AddCustomerPage ac = new AddCustomerPage();
 
 
 	@Given("user click on add customer button")
 	public void user_click_on_add_customer_button() {
 	    System.out.println("Background");
-		Hooks.driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")).click();
+		
+	    ca.button(ac.getAddCustomerButton());
 		
 	}
 
 	@When("user need to fill up the fields")
 	public void user_need_to_fill_up_the_fields() {
 	    
-		Hooks.driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
-		Hooks.driver.findElement(By.id("fname")).sendKeys("karthi");
-		Hooks.driver.findElement(By.id("lname")).sendKeys("rajan");
-		Hooks.driver.findElement(By.id("email")).sendKeys("karthi@gmail.com");
-		Hooks.driver.findElement(By.name("addr")).sendKeys("tanjore");
-		Hooks.driver.findElement(By.id("telephoneno")).sendKeys("6464635875");
+		ca.button(ac.getDoneButton());
+		ca.insertText(ac.getFname(), "karthi");
+		ca.insertText(ac.getLname(), "rajan");
+		ca.insertText(ac.getMail(), "karthi@gmail.com");
+		ca.insertText(ac.getAddr(), "thnj");
+		ca.insertText(ac.getPhno(), "67564533");
 		
 	}
 	
@@ -43,12 +48,12 @@ public class AddCustomerSteps {
 		
 		List<String> data = dataTable.asList(String.class);
 		
-		Hooks.driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
-		Hooks.driver.findElement(By.id("fname")).sendKeys(data.get(0));
-		Hooks.driver.findElement(By.id("lname")).sendKeys(data.get(1));
-		Hooks.driver.findElement(By.id("email")).sendKeys(data.get(2));
-		Hooks.driver.findElement(By.name("addr")).sendKeys(data.get(3));
-		Hooks.driver.findElement(By.id("telephoneno")).sendKeys(data.get(4));
+		ca.button(ac.getDoneButton());
+		ca.insertText(ac.getFname(), data.get(0));
+		ca.insertText(ac.getLname(), data.get(1));
+		ca.insertText(ac.getMail(), data.get(2));
+		ca.insertText(ac.getAddr(), data.get(3));
+		ca.insertText(ac.getPhno(), data.get(4));
 		
 	    
 	}
@@ -59,12 +64,12 @@ public class AddCustomerSteps {
 		
 		Map<String, String> data = dataTable.asMap(String.class, String.class);
 		
-		Hooks.driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
-		Hooks.driver.findElement(By.id("fname")).sendKeys(data.get("Fname"));
-		Hooks.driver.findElement(By.id("lname")).sendKeys(data.get("Lname"));
-		Hooks.driver.findElement(By.id("email")).sendKeys(data.get("mail"));
-		Hooks.driver.findElement(By.name("addr")).sendKeys(data.get("addr"));
-		Hooks.driver.findElement(By.id("telephoneno")).sendKeys(data.get("phno"));
+		driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
+		driver.findElement(By.id("fname")).sendKeys(data.get("Fname"));
+		driver.findElement(By.id("lname")).sendKeys(data.get("Lname"));
+		driver.findElement(By.id("email")).sendKeys(data.get("mail"));
+		driver.findElement(By.name("addr")).sendKeys(data.get("addr"));
+		driver.findElement(By.id("telephoneno")).sendKeys(data.get("phno"));
 		
 	    
 	}
@@ -74,12 +79,12 @@ public class AddCustomerSteps {
 		
 		List<List<String>> data = dataTable.asLists(String.class);
 		
-		Hooks.driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
-		Hooks.driver.findElement(By.id("fname")).sendKeys(data.get(2).get(0));
-		Hooks.driver.findElement(By.id("lname")).sendKeys(data.get(1).get(1));
-		Hooks.driver.findElement(By.id("email")).sendKeys(data.get(3).get(2));
-		Hooks.driver.findElement(By.name("addr")).sendKeys(data.get(0).get(3));
-		Hooks.driver.findElement(By.id("telephoneno")).sendKeys(data.get(0).get(4));
+		driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
+		driver.findElement(By.id("fname")).sendKeys(data.get(2).get(0));
+		driver.findElement(By.id("lname")).sendKeys(data.get(1).get(1));
+		driver.findElement(By.id("email")).sendKeys(data.get(3).get(2));
+		driver.findElement(By.name("addr")).sendKeys(data.get(0).get(3));
+		driver.findElement(By.id("telephoneno")).sendKeys(data.get(0).get(4));
 		
 	    
 	}
@@ -89,12 +94,12 @@ public class AddCustomerSteps {
 		
 		List<Map<String, String>> data = dataTable.asMaps(String.class,String.class);
 		
-		Hooks.driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
-		Hooks.driver.findElement(By.id("fname")).sendKeys(data.get(1).get("Fname"));
-		Hooks.driver.findElement(By.id("lname")).sendKeys(data.get(1).get("Lname"));
-		Hooks.driver.findElement(By.id("email")).sendKeys(data.get(3).get("mail"));
-		Hooks.driver.findElement(By.name("addr")).sendKeys(data.get(0).get("Addr"));
-		Hooks.driver.findElement(By.id("telephoneno")).sendKeys(data.get(0).get("phno"));
+		driver.findElement(By.xpath("(//label[@for='done'])[1]")).click();
+		driver.findElement(By.id("fname")).sendKeys(data.get(1).get("Fname"));
+		driver.findElement(By.id("lname")).sendKeys(data.get(1).get("Lname"));
+		driver.findElement(By.id("email")).sendKeys(data.get(3).get("mail"));
+		driver.findElement(By.name("addr")).sendKeys(data.get(0).get("Addr"));
+		driver.findElement(By.id("telephoneno")).sendKeys(data.get(0).get("phno"));
 		
 	    
 	}
@@ -103,15 +108,15 @@ public class AddCustomerSteps {
 	@When("user click on submit button")
 	public void user_click_on_submit_button() {
 		System.out.println("scenario");
-		Hooks.driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
+		ca.button(ac.getSubmitButton());
 	    
 	}
 
 	@Then("user verify customer id is generated")
 	public void user_verify_customer_id_is_generated() {
 		
-		Assert.assertTrue(Hooks.driver.findElement(By.xpath("(//td[@align='center'])[2]")).isDisplayed());
-	  //  Hooks.driver.quit();
+		Assert.assertTrue(driver.findElement(By.xpath("(//td[@align='center'])[2]")).isDisplayed());
+	  //  driver.quit();
 	}
 
 
