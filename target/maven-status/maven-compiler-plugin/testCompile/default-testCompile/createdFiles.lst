@@ -4,3 +4,4 @@ com\telecom\stepdefinition\Hooks.class
 com\telecom\resources\Commonaction.class
 com\telecom\objectrepository\AddCustomerPage.class
 com\telecom\stepdefinition\AddCustomerSteps.class
+com\telecom\stepdefinition\ProReader.class
